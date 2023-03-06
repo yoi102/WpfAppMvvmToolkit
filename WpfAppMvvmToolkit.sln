@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppMvvmToolkit", "WpfApp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppMvvmToolkit.Core", "WpfAppMvvmToolkit.Core\WpfAppMvvmToolkit.Core.csproj", "{98D925B3-33AA-4DAD-890C-AF90EA8BC313}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{10DF7BC3-9C12-405F-9572-EE36097B13A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiApp1", "MauiApp1\MauiApp1.csproj", "{10DF7BC3-9C12-405F-9572-EE36097B13A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfAppMvvmToolkit.API", "WpfAppMvvmToolkit.API\WpfAppMvvmToolkit.API.csproj", "{46C5AF32-6AF6-4283-8AB7-BF5C10A7AF6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{10DF7BC3-9C12-405F-9572-EE36097B13A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10DF7BC3-9C12-405F-9572-EE36097B13A4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{10DF7BC3-9C12-405F-9572-EE36097B13A4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{46C5AF32-6AF6-4283-8AB7-BF5C10A7AF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C5AF32-6AF6-4283-8AB7-BF5C10A7AF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C5AF32-6AF6-4283-8AB7-BF5C10A7AF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C5AF32-6AF6-4283-8AB7-BF5C10A7AF6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
