@@ -2,7 +2,7 @@
 
 using System.Collections.Generic;
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork.Collections
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork.Collections
 {
     /// <summary>
     /// Provides the interface(s) for paged list of any type.

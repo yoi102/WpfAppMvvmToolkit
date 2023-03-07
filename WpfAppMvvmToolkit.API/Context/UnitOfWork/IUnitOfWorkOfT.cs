@@ -3,7 +3,7 @@
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork
 {
     /// <summary>
     /// Defines the interface(s) for generic unit of work.

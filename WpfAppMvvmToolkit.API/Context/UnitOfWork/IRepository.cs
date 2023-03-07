@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork
 {
     using System;
     using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace WpfAppMvvmToolkit.API.UnitOfWork
     using Microsoft.EntityFrameworkCore.Query;
     using Microsoft.EntityFrameworkCore.ChangeTracking;
     using Microsoft.EntityFrameworkCore;
-    using WpfAppMvvmToolkit.API.UnitOfWork.Collections;
+    using WpfAppMvvmToolkit.API.Context.UnitOfWork.Collections;
 
     /// <summary>
     /// Defines the interfaces for generic repository.

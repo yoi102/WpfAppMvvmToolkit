@@ -3,7 +3,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork
 {
     /// <summary>
     /// Extension methods for setting up unit of work related services in an <see cref="IServiceCollection"/>.

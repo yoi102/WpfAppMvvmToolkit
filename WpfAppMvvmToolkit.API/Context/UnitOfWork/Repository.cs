@@ -11,9 +11,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
-using WpfAppMvvmToolkit.API.UnitOfWork.Collections;
+using WpfAppMvvmToolkit.API.Context.UnitOfWork.Collections;
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork
 {
     /// <summary>
     /// Represents a default generic repository implements the <see cref="IRepository{TEntity}"/> interface.

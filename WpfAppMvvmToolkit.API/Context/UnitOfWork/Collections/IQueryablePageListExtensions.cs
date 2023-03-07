@@ -4,8 +4,9 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.EntityFrameworkCore;
+using WpfAppMvvmToolkit.API.UnitOfWork.Collections;
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork.Collections
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork.Collections
 {
     public static class IQueryablePageListExtensions
     {

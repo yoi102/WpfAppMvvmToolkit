@@ -4,7 +4,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork
 {
     /// <summary>
     /// Defines the interfaces for <see cref="IRepository{TEntity}"/> interfaces.

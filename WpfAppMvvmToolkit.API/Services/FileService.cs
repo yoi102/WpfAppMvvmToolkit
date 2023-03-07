@@ -1,21 +1,24 @@
 ﻿using System.IO.Compression;
+using WpfAppMvvmToolkit.API.Context.UnitOfWork;
 
 namespace WpfAppMvvmToolkit.API.Services;
 
 public class FileService : IFileService
 {
-    #region Property
-
-    private readonly IWebHostEnvironment _webHostEnvironment;
+    #region Field
+    private readonly IUnitOfWork unitOfWork;//获取uow
+    private readonly IWebHostEnvironment webHostEnvironment;
 
     #endregion
 
     #region Constructor
 
-    public FileService(IWebHostEnvironment webHostEnvironment)
+    public FileService(IUnitOfWork unitOfWork,IWebHostEnvironment webHostEnvironment)
     {
-        _webHostEnvironment = webHostEnvironment;
+        this.unitOfWork = unitOfWork;
+        this.webHostEnvironment = webHostEnvironment;
     }
+
 
     #endregion
 
@@ -24,7 +27,8 @@ public class FileService : IFileService
     public void UploadFile(List<IFormFile> files, string subDirectory)
     {
         subDirectory = subDirectory ?? string.Empty;
-        var target = Path.Combine(_webHostEnvironment.ContentRootPath, subDirectory);
+        //var target = Path.Combine(webHostEnvironment.ContentRootPath, subDirectory);//根目录+
+        var target = Path.Combine(Environment.GetFolderPath( Environment.SpecialFolder.LocalApplicationData), subDirectory);//应用配置存储文件位置
 
         Directory.CreateDirectory(target);
 
@@ -45,7 +49,7 @@ public class FileService : IFileService
     {
         var zipName = $"archive-{DateTime.Now:yyyy_MM_dd-HH_mm_ss}.zip";
 
-        var files = Directory.GetFiles(Path.Combine(_webHostEnvironment.ContentRootPath, subDirectory)).ToList();
+        var files = Directory.GetFiles(Path.Combine(webHostEnvironment.ContentRootPath, subDirectory)).ToList();
 
         using var memoryStream = new MemoryStream();
         using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))

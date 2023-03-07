@@ -2,8 +2,9 @@
 
 using System;
 using System.Collections.Generic;
+using WpfAppMvvmToolkit.API.UnitOfWork.Collections;
 
-namespace WpfAppMvvmToolkit.API.UnitOfWork.Collections
+namespace WpfAppMvvmToolkit.API.Context.UnitOfWork.Collections
 {
     /// <summary>
     /// Provides some extension methods for <see cref="IEnumerable{T}"/> to provide paging capability.
