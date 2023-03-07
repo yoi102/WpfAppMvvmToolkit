@@ -2,7 +2,6 @@
 
 using System;
 using System.Collections.Generic;
-using WpfAppMvvmToolkit.API.UnitOfWork.Collections;
 
 namespace WpfAppMvvmToolkit.API.Context.UnitOfWork.Collections
 {

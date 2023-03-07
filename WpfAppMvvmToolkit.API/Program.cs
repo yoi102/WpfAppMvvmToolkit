@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using MyToDo.Api.Context.Repository;
 using WpfAppMvvmToolkit.API.Context;
 using WpfAppMvvmToolkit.API.Context.Entities;
+using WpfAppMvvmToolkit.API.Context.Repositories;
 using WpfAppMvvmToolkit.API.Context.UnitOfWork;
 using WpfAppMvvmToolkit.API.Services;
 
