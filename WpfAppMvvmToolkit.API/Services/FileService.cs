@@ -6,24 +6,21 @@ namespace WpfAppMvvmToolkit.API.Services;
 public class FileService : IFileService
 {
     #region Field
-    private readonly IUnitOfWork unitOfWork;//获取uow
     private readonly IWebHostEnvironment webHostEnvironment;
 
     #endregion
 
     #region Constructor
 
-    public FileService(IUnitOfWork unitOfWork,IWebHostEnvironment webHostEnvironment)
+    public FileService(IWebHostEnvironment webHostEnvironment)
     {
-        this.unitOfWork = unitOfWork;
         this.webHostEnvironment = webHostEnvironment;
     }
 
 
     #endregion
 
-    #region Upload File
-
+    #region Upload File+
     public void UploadFile(List<IFormFile> files, string subDirectory)
     {
         subDirectory = subDirectory ?? string.Empty;
@@ -44,7 +41,6 @@ public class FileService : IFileService
     #endregion
 
     #region Download File
-
     public (string fileType, byte[] archiveData, string archiveName) DownloadFiles(string subDirectory)
     {
         var zipName = $"archive-{DateTime.Now:yyyy_MM_dd-HH_mm_ss}.zip";

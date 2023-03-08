@@ -4,8 +4,8 @@ using WpfAppMvvmToolkit.API.Services;
 
 namespace WpfAppMvvmToolkit.API.Controllers;
 
-[Route("api/[controller]")]
 [ApiController]
+[Route("api/[controller]/[action]")]
 public class FileController : ControllerBase
 {
     private readonly IFileService _fileService;
@@ -14,8 +14,7 @@ public class FileController : ControllerBase
     {
         _fileService = fileService;
     }
-
-    [HttpPost(nameof(Upload))]
+    [HttpPost]
     public IActionResult Upload([Required] List<IFormFile> formFiles, [Required] string subDirectory)
     {
         try
@@ -29,8 +28,7 @@ public class FileController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-
-    [HttpGet(nameof(Download))]
+    [HttpGet]
     public IActionResult Download([Required] string subDirectory)
     {
         try
