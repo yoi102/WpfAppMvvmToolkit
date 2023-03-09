@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfAppMvvmToolkit.Core.Services
 {
-    public class FileService: IFileService
+    public class UserService: IUserService
     {
-
-
     }
 }
