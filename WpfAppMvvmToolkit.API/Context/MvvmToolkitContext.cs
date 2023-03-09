@@ -15,6 +15,7 @@ namespace WpfAppMvvmToolkit.API.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            //关系表
             modelBuilder.Entity<User>()
             .HasOne(b => b.UserData)
             .WithOne(i=>i.User)

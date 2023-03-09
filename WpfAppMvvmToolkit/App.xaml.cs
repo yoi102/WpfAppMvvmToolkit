@@ -19,7 +19,6 @@ namespace WpfAppMvvmToolkit
         public App()
         {
             Services = ConfigureServices();
-
             this.InitializeComponent();
         }
 
@@ -40,8 +39,7 @@ namespace WpfAppMvvmToolkit
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IFileService, FileService>();
-      
-
+            //services.AddSingleton<>();
             return services.BuildServiceProvider();
         }
 
