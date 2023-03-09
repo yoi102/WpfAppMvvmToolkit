@@ -8,11 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="RestSharp" Version="109.0.0-preview.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Models\" />
   </ItemGroup>
 
   <ItemGroup>
