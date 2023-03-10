@@ -6,7 +6,7 @@ namespace WpfAppMvvmToolkit.API.Services
     public interface IUserService
     {
         Task<ApiResponse> LoginAsync(string account, string password);
-        Task<ApiResponse> Resgiter(UserInfo user);
-        Task<ApiResponse> UpdateAccount(UserInfo user);
+        Task<ApiResponse> Resgiter(UserDto user);
+        Task<ApiResponse> UpdateAccount(UserDto user);
     }
 }

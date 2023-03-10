@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace WpfAppMvvmToolkit.Core.Models
 {
-    public partial class UserInfoData : ObservableObject
+    public partial class MemoDto : ObservableObject
     {
+
+
         [ObservableProperty]
-        private string? description;
+        private string? title;     
+        [ObservableProperty]
+        private string? memo;
 
 
 

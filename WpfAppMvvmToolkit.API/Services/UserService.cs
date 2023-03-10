@@ -28,10 +28,9 @@ namespace WpfAppMvvmToolkit.API.Services
                 {
                     return new ApiResponse($"{Core.Properties.Strings.User}或{Core.Properties.Strings.Password}错误,请重试！");
                 }
-                return new ApiResponse(true, new UserInfo()
+                return new ApiResponse(true, new UserDto()
                 {
                     Account = model.Account,
-                    UserName = model.UserName,
                     Id = model.Id
                 });
 
@@ -42,7 +41,7 @@ namespace WpfAppMvvmToolkit.API.Services
             }
         }
 
-        public async Task<ApiResponse> Resgiter(UserInfo user)
+        public async Task<ApiResponse> Resgiter(UserDto user)
         {
             try
             {
@@ -67,18 +66,18 @@ namespace WpfAppMvvmToolkit.API.Services
             }
         }
 
-        public async Task<ApiResponse> UpdateAccount(UserInfo user)
+        public async Task<ApiResponse> UpdateAccount(UserDto user)
         {
             try
             {
                 var model = mapper.Map<User>(user);
                 var repository = work.GetRepository<User>();
-                var userModel = await repository.GetFirstOrDefaultAsync(predicate: x => x.Account!.Equals(model.Account), include: s => s.Include(x => x.UserData!));
+                var userModel = await repository.GetFirstOrDefaultAsync(predicate: x => x.Account!.Equals(model.Account), include: s => s.Include(x => x.Memos!));
                 if (userModel == null)
                     return new ApiResponse($"未找到{Core.Properties.Strings.User}：{model.Account} ");
                 userModel.UpdateDate = DateTime.Now;
                 userModel.Password = model.Password!.GetMD5();
-                userModel.UserData = model.UserData;
+                userModel.Memos = model.Memos;
                 repository.Update(userModel);
                 if (await work.SaveChangesAsync() > 0)
                     return new ApiResponse(true, userModel);

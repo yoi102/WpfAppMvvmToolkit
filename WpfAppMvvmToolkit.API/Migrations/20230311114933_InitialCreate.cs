@@ -17,7 +17,6 @@ namespace WpfAppMvvmToolkit.API.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserName = table.Column<string>(type: "TEXT", nullable: false),
                     Account = table.Column<string>(type: "TEXT", nullable: false),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -29,11 +28,36 @@ namespace WpfAppMvvmToolkit.API.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserData",
+                name: "Memos",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    Title = table.Column<string>(type: "TEXT", nullable: true),
+                    Content = table.Column<string>(type: "TEXT", nullable: true),
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    UpdateDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Memos", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Memos_Users_UserId",
+                        column: x => x.UserId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Profile",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NetName = table.Column<string>(type: "TEXT", nullable: true),
+                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true),
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "TEXT", nullable: false),
@@ -41,9 +65,9 @@ namespace WpfAppMvvmToolkit.API.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserData", x => x.Id);
+                    table.PrimaryKey("PK_Profile", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserData_Users_UserId",
+                        name: "FK_Profile_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -51,8 +75,13 @@ namespace WpfAppMvvmToolkit.API.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserData_UserId",
-                table: "UserData",
+                name: "IX_Memos_UserId",
+                table: "Memos",
+                column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Profile_UserId",
+                table: "Profile",
                 column: "UserId",
                 unique: true);
         }
@@ -61,7 +90,10 @@ namespace WpfAppMvvmToolkit.API.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "UserData");
+                name: "Memos");
+
+            migrationBuilder.DropTable(
+                name: "Profile");
 
             migrationBuilder.DropTable(
                 name: "Users");

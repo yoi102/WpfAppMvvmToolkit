@@ -9,8 +9,9 @@ namespace MyToDo.Api.Extensions
         public AutoMapperProFile()
         {
 
-            CreateMap<User, UserInfo>().ReverseMap();
-            CreateMap<UserData, UserInfoData>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<Memo, MemoDto>().ReverseMap();
+            CreateMap<WpfAppMvvmToolkit.API.Context.Entities.Profile, ProfileDto>().ReverseMap();
 
         }
 

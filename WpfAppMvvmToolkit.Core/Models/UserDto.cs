@@ -7,18 +7,15 @@ using System.Threading.Tasks;
 
 namespace WpfAppMvvmToolkit.Core.Models
 {
-    public partial class UserInfo : ObservableObject
+    public partial class UserDto : ObservableObject
     {
         [ObservableProperty]
         private int id;
         [ObservableProperty]
-        private string? userName;
-        [ObservableProperty]
         private string? account;
         [ObservableProperty]
         private string? password;
-        [ObservableProperty]
-        private List<UserInfoData>? userData;
+  
 
     }
 

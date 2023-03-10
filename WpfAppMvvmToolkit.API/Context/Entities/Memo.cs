@@ -1,8 +1,9 @@
 ﻿namespace WpfAppMvvmToolkit.API.Context.Entities
 {
-    public class UserData : BaseEntity
+    public class Memo : BaseEntity
     {
-        public string? Description { get; set; }
+        public string? Title { get; set; }
+        public string? Content { get; set; }
         public int UserId { get; set; }
         public User? User { get; set; }
     }
