@@ -11,6 +11,6 @@ namespace WpfAppMvvmToolkit.API.Context.Entities
         [Required]
         public string? Password { get; set; }
 
-        public UserData? UserData { get; set; }
+        public List<UserData>? UserData { get; set; }
     }
 }

@@ -1,4 +1,6 @@
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using MyToDo.Api.Extensions;
 using WpfAppMvvmToolkit.API.Context;
 using WpfAppMvvmToolkit.API.Context.Entities;
 using WpfAppMvvmToolkit.API.Context.Repositories;
@@ -26,7 +28,14 @@ builder.Services.AddDbContext<MvvmToolkitContext>(options =>
 
 }).AddUnitOfWork<MvvmToolkitContext>()
 .AddCustomRepository<User, UserRepository>();
+//Ìí¼ÓAutoMapper
+var autoMapperConfig = new MapperConfiguration(config =>
+{
+    config.AddProfile(new AutoMapperProFile());
 
+});
+
+builder.Services.AddSingleton(autoMapperConfig.CreateMapper());
 
 
 builder.Services.AddTransient<IFileService, FileService>();

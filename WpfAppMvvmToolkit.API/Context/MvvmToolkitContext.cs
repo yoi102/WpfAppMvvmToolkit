@@ -17,9 +17,9 @@ namespace WpfAppMvvmToolkit.API.Context
             base.OnModelCreating(modelBuilder);
             //关系表
             modelBuilder.Entity<User>()
-            .HasOne(b => b.UserData)
+            .HasMany(b => b.UserData)
             .WithOne(i=>i.User)
-            . HasForeignKey<UserData>(b => b.UserId);
+            . HasForeignKey(b => b.UserId);
         }
     }
 }

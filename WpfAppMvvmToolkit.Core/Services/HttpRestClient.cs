@@ -43,11 +43,8 @@ namespace WpfAppMvvmToolkit.Core.Services
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 return JsonConvert.DeserializeObject<ApiResponse>(response.Content!)!;
             else
-                return new ApiResponse()
-                {
-                    Status = false,
-                    Message = response.ErrorMessage
-                };
+                return new ApiResponse(response.ErrorMessage!);
+               
         }
 
         ////public async Task<ApiResponse<T>> ExecuteAsync<T>(BaseRequest baseRequest)

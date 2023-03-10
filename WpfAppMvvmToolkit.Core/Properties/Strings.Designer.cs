@@ -304,6 +304,15 @@ namespace WpfAppMvvmToolkit.Core.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Password 的本地化字符串。
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Pictures 的本地化字符串。
         /// </summary>
         public static string Pictures {

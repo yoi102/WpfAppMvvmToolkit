@@ -240,4 +240,7 @@
   <data name="Videos" xml:space="preserve">
     <value>ビデオ</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>パスワード</value>
+  </data>
 </root>
