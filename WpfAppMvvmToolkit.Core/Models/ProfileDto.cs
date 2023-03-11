@@ -5,7 +5,6 @@ namespace WpfAppMvvmToolkit.Core.Models
 {
     public partial class ProfileDto : ObservableObject
     {
-
         [ObservableProperty]
         private string? netName;
         [ObservableProperty]
@@ -14,10 +13,6 @@ namespace WpfAppMvvmToolkit.Core.Models
         private string? description;
         [ObservableProperty]
         private Image? predictImage;
-
-
-
-
 
     }
 }

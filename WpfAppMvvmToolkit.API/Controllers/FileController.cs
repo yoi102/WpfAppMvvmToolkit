@@ -28,6 +28,13 @@ public class FileController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
+    //返回单文件流
+
+
+
+
+
+    //返回的zip
     [HttpGet]
     public IActionResult Download([Required] string subDirectory)
     {

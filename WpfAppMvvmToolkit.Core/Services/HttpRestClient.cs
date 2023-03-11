@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Threading.Tasks;
@@ -6,7 +7,7 @@ using WpfAppMvvmToolkit.Core.Models;
 
 namespace WpfAppMvvmToolkit.Core.Services
 {
-    public class HttpRestClient
+    public class HttpRestClient: IHttpRestClient
     {
         protected readonly RestClient client;
 
@@ -15,9 +16,9 @@ namespace WpfAppMvvmToolkit.Core.Services
             client = new RestClient(apiUrl);
         }
 
-        public async Task<ApiResponse> ExecuteAsync(BaseRequest baseRequest)
+        public async Task<ApiResponse> ExecuteRequestAsync(BaseRequest baseRequest)
         {
-            var request = new RestRequest("{controller}/{action}")
+            var request = new RestRequest("api/{controller}/{action}")
                                                             .AddUrlSegment("controller", baseRequest.Controller!)
                                                             .AddUrlSegment("action", baseRequest.Action!);
             request.Method = baseRequest.Method;
@@ -46,6 +47,39 @@ namespace WpfAppMvvmToolkit.Core.Services
                 return new ApiResponse(response.ErrorMessage!);
                
         }
+
+        public async Task<IActionResult> ExecuteFileRequestAsync(BaseRequest baseRequest)
+        {
+            var request = new RestRequest("api/{controller}/{action}")
+                                                           .AddUrlSegment("controller", baseRequest.Controller!)
+                                                           .AddUrlSegment("action", baseRequest.Action!);
+            request.Method = baseRequest.Method;
+
+            if (baseRequest.Bodies is not null)
+            {
+                foreach (var body in baseRequest.Bodies)
+                {
+                    request.AddBody(body);
+                }
+            }
+
+            if (baseRequest.Parameters != null)
+            {
+                foreach (var parameter in baseRequest.Parameters)
+                {
+                    request.AddParameter(parameter.Key, parameter.Value);
+                }
+            }
+
+            var response = await client.ExecuteAsync(request);
+
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                return JsonConvert.DeserializeObject<IActionResult>(response.Content!)!;
+            else
+                return null!;
+        }
+
+  
 
         ////public async Task<ApiResponse<T>> ExecuteAsync<T>(BaseRequest baseRequest)
         ////{
